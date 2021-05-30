@@ -59,7 +59,7 @@
               <form method="post" action="{{ route('course.access') }}">
                 @csrf
                 @method('POST')
-                <input type="text" name="link" style="padding-right: 180px;"><input type="submit" value="Accéder au cours">
+                <input type="text" name="linking" style="padding-right: 180px;"><input type="submit" value="Accéder au cours">
               </form>
             </div>
           </div>

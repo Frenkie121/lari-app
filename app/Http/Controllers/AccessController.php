@@ -11,25 +11,24 @@ class AccessController extends Controller
     public function access(Request $request)
     {
         $this->validate($request, [
-            'link' => 'required|string',
+            'linking' => 'required|string',
         ]);
 
-        $event = Event::whereLinking($event->linking)->get();
+        $event = Event::whereLinking($request->linking)->get();
+        
         if (!$event) {
             Alert::toast('Le cours souhaité n\'existe pas');
-            return back();
-        }elseif (is_null($event->end_at)) {
-            Alert::toast('Le cours souhaité est déjà passé');
             return back();
         }
 
         Alert::toast('Bienvenue au cours');
-        return redirect()->route('course.classroom');
+        return redirect()->route('course.classroom', $event->first()->linking);
     }
 
-    public function classroom($link)
+    public function classroom(Request $request)
     {
-        $event = Event::whereLinking($link)->get();
+        $event = Event::whereLinking($request->link)->get();
+        
         return view('classroom', [
             'event' => $event,
         ]);
