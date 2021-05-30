@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('title');
             $table->text('description');
-            $table->string('link');
+            $table->string('linking');
             $table->timestamp('begin_at')->nullable();
             $table->timestamp('end_at')->nullable();
             $table->timestamps();

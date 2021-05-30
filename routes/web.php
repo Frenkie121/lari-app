@@ -29,4 +29,6 @@ Route::middleware(['can:Manage event', 'auth'])->group(function(){
     Route::resource('event', EventController::class);
 });
 
-Route::get('test/{link}', [AccessController::class, 'test'])->middleware(['auth'])->name('course.classroom');
+Route::post('access', [AccessController::class, 'access'])->middleware(['auth'])->name('course.access');
+
+Route::get('cours/{link}', [AccessController::class, 'classroom'])->middleware(['auth'])->name('course.classroom');

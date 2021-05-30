@@ -19,7 +19,7 @@
             <li class="dropdown"><a href="#"><span>{{ auth()->user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                     @if(auth()->user()->hasRole('Teacher'))
-                        <li><a class="nav-link scrollto" href="{{ route('admin.home') }}">Accéder à un cours</a></li>
+                        <li><a class="nav-link scrollto" href="{{ route('admin.home') }}">Administration</a></li>
                     @endif
                     @if(auth()->user()->hasRole('Student'))
                         <li><a class="nav-link scrollto" href="#classAccess">Accéder à un cours</a></li>

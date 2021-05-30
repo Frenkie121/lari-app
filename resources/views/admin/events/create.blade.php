@@ -36,7 +36,7 @@
                                     </button>
                                 </div>
                                 <input hidden type="text" name="user_id" value="{{ auth()->id() }}">
-                                <input hidden type="text" name="link" value="{{ $link }}">
+                                <input hidden type="text" name="linking" value="{{ $link }}">
                             </form>
                         </div>
                     </div>

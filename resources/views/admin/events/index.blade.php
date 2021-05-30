@@ -54,7 +54,7 @@
                                     <td>
                                         <div class="{{ !is_null($event->end_at) ? 'badge badge-primary' : '' }}"></div>
                                         @if(is_null($event->end_at))
-                                            <a href="{{ route('course.classroom', $event->link) }}">Aller au cours</a>
+                                            <a href="#">Aller au cours</a>
                                         @else
                                             Terminé
                                         @endif

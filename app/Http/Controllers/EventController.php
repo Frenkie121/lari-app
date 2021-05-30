@@ -45,7 +45,7 @@ class EventController extends Controller
         $this->validate($request, [
             'title' => 'required|string',
             'description' => 'required|string',
-            'link' => 'string',
+            'linking' => 'string',
             'user_id' => 'required|exists:users,id',
         ]);
         
@@ -83,14 +83,14 @@ class EventController extends Controller
         $this->validate($request, [
             'title' => 'required|string',
             'description' => 'required|string',
-            'link' => 'required|string',
+            'linking' => 'required|string',
             'user_id' => 'required|exists:users,id',
         ]);
         
         $event->title = $request->title;
         $event->description = $request->description;
         $event->user_id = $request->user_id;
-        $event->link = $request->link;
+        $event->linking = $request->link;
         $event->save();
 
         Alert::toast('Evènement mis à jour avec succès', 'success');

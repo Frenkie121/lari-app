@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'TNL') }}</title>
+    <title>{{ config('app.name', 'TNL') }} @yield('subtitle')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -56,10 +56,10 @@
             <div class="col-lg-6">
               <h4>Suivre un cours</h4>
               <p>Entrer le code du cours pour accéder à celui-ci</p>
-              <form method="post">
-                <!-- @csrf
-                @method('POST') -->
-                <input type="email" name="link"><input type="submit" value="Accéder au cours">
+              <form method="post" action="{{ route('course.access') }}">
+                @csrf
+                @method('POST')
+                <input type="text" name="link" style="padding-right: 180px;"><input type="submit" value="Accéder au cours">
               </form>
             </div>
           </div>
@@ -159,6 +159,6 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('front/js/main.js')}}"></script>
-        
+  @include('sweetalert::alert')
 </body>
 </html>
